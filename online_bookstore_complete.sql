@@ -188,9 +188,9 @@ DROP COLUMN DateOfBirth;
 -- Q19. Add a new column DeliveryAgentID in Orders referencing DeliveryAgents.
 
 ALTER TABLE Orders
-ADD DeliveryAgentID INT,
+ADD AgentID INT,
 ADD CONSTRAINT fk_orders_delivery
-FOREIGN KEY (DeliveryAgentID) REFERENCES DeliveryAgents(DeliveryAgentID);
+FOREIGN KEY (AgentID) REFERENCES DeliveryAgents(AgentID);
 
 
 -- Q20. Drop the foreign key constraint from Orders referencing Customers.
@@ -238,7 +238,6 @@ CREATE TABLE DeliveryAgents (
     Name VARCHAR(100),
     Phone VARCHAR(15) UNIQUE,
     Region VARCHAR(10) DEFAULT 'North',
-    CONSTRAINT chk_delivery_region 
     CHECK (Region IN ('North', 'South', 'East', 'West'))
 );
 
